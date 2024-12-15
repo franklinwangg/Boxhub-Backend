@@ -100,7 +100,6 @@ const Post = () => {
         try {
 
             const postId = location.state.id; // this is null
-            // const response = await fetch(`http://localhost:5000/api/comments/${postId}`); // where does this go?
 
             try {
                 const response = await fetch(`http://localhost:5000/api/comments/${postId}`); // this is not defined
@@ -173,22 +172,28 @@ const Post = () => {
         const temp = [];
         // render itself
 
-        renderedComments.push(renderComment(currentComment));
+        const renderedComment = renderComment(currentComment);        
+        renderedComments.push(renderedComment);
 
+        console.log("1");
+        console.log("renderedComments length : ", renderedComments.length);
         // if comment is on last level of levelArrays, we need to stop it cuz otherwise will 
         // trigger outOfBounds error
         if (level === levelArrays.length - 1) {
+            console.log("2");
 
             return renderedComments;
         }
         else {
             // find all matching child comments in next level
-            for (let i = 0; i < levelArrays[level + 1].length; i++) {
-                if (levelArrays[level + 1][i].parent_comment_id == currentComment.id) { // parentCommentId undefined?
-                    temp.push(levelArrays[level + 1][i]);
+            console.log("3");
 
+            for (let i = 0; i < levelArrays[level + 1].length; i++) {
+                if (levelArrays[level + 1][i].parent_comment_id == currentComment.comment_id) { // parentCommentId undefined?
+                    temp.push(levelArrays[level + 1][i]);
                 }
             }
+            console.log("4");
 
             // render all of its child comments
 
@@ -198,8 +203,10 @@ const Post = () => {
                     renderedComments.push(arrayOfChildElementsHTML[j]);
                 }
             }
+            console.log("5");
 
             // if no children, then return renderedComments
+            console.log("renderedComments length : ", renderedComments.length);
 
             return renderedComments;
         }
@@ -214,8 +221,6 @@ const Post = () => {
     };
 
     const renderComment = (comment) => {
-
-        console.log("comment content : ", comment.content);
 
         return (
 
@@ -239,12 +244,32 @@ const Post = () => {
 
             for (let i = 0; i < levelArrays[0].length; i++) {
                 const arrayOfRecursiveElementsHTML = renderEachLevel(levelArrays, levelArrays[0][i], 0);
+                console.log("arrayOfRecursiveElementsHTML length : ", arrayOfRecursiveElementsHTML.length); // doesn't even add itself?
                 for (let j = 0; j < arrayOfRecursiveElementsHTML.length; j++) {
+                    console.log("element : ", arrayOfRecursiveElementsHTML[j]);
+                    console.log("key : ", arrayOfRecursiveElementsHTML[j].props.id);
+                    const tempElement = React.cloneElement(arrayOfRecursiveElementsHTML[j], { key: arrayOfRecursiveElementsHTML[j].props.id });
+
                     overallRenderedComments.push(
-                        React.cloneElement(arrayOfRecursiveElementsHTML[j], { key: arrayOfRecursiveElementsHTML[j].props.id })
+                        tempElement
                     );
+                    // console.log("i ", i);
+                    // console.log("j ", j);
                 }
             }
+
+            // for(let i = 0; i < levelArrays.length; i ++) {
+            //     const arrayOfRecursiveElementsHTML = renderEachLevel(levelArrays, levelArrays[i][0], 0); 
+            //     // does this return all elements of level 0? or does it render down recursively from each element at level 0?
+                
+            // }
+
+            // console.log("PRINTING OVERALL RENDERED COMMENTS ");
+            // console.log("overall rendered comments size : ", overallRenderedComments.length);
+            // for(let i = 0; i < overallRenderedComments.length; i ++) {
+            //     console.log(overallRenderedComments[i]);
+            // }
+
             return overallRenderedComments;
         }
     }

@@ -1,3 +1,1 @@
-test it to see if it actually works, upload an article
-
-is the correct AWS access key the one in env, or the one in postRoutes.js 14?
+so the comments array is fine

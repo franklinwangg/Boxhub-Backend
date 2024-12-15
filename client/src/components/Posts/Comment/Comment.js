@@ -27,6 +27,9 @@ const Comment = (props) => {
         };
 
         document.addEventListener('mousedown', handleClickOutside);
+
+    
+
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
@@ -101,8 +104,13 @@ const Comment = (props) => {
                 <div className="comment-author">    {props.author ? props.author.toUpperCase() : 'Anonymous'}
                 </div>
 
+                {/* <Comment post={location.state.id} comment_id = {comment.comment_id} post_id = {comment.post_id} 
+                    author = {comment.author} content = {comment.content} level = {comment.level} 
+                    parent_comment_id = {comment.parent_comment_id}
+                handleReplySubmission={handleReplySubmission} /> // id is undefined? */}
 
-                <div className="comment-contents">{props.comment}</div>
+                <div className="comment-contents">{props.content}</div> 
+
             </div>
 
 
