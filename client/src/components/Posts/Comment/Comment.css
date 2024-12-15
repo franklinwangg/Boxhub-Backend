@@ -1,0 +1,92 @@
+.comment-container {
+    margin-top: 10px;
+    border-left: 2px solid #ccc;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    position: relative; /* Make sure the container is positioned relative to allow absolute positioning of the button */
+}
+
+
+.comment-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: rgb(175, 36, 36);
+}
+
+.comment-contents {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.reply-section {
+    display: flex;
+    align-items: center;
+}
+
+.reply-input {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Hide the reply button by default */
+.reply-button {
+    padding: 8px 16px;
+    background-color: rgb(175, 36, 36);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    opacity: 0; /* Initially hidden */
+    visibility: hidden; /* Ensures the button doesn't take up space when hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Show the button when hovering over the comment container */
+.comment-container:hover .reply-button {
+    opacity: 1;
+    visibility: visible;
+}
+
+.reply-button:hover {
+    background-color: rgb(219, 30, 30);
+}
+
+.submit-reply-button {
+    padding: 8px 16px;
+    background-color: rgb(175, 36, 36); /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600; /* Make the text bold */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for hover effects */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Subtle shadow for a 3D effect */
+    margin-top: 5px; /* Space between the button and the input */
+}
+
+.submit-reply-button:hover {
+    background-color: rgb(219, 30, 30); /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+.submit-reply-button:active {
+    background-color: rgb(219, 30, 30); /* Even darker green when clicked */
+    transform: translateY(0); /* Reset lift on click */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Slightly reduce shadow */
+}
+
+.submit-reply-button:focus {
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 0 3px rgba(251, 27, 2, 0.5); /* Add a focus ring */
+}
+
+.reply-arrow {
+    margin-left: 5px; /* Adds space between text and arrow */
+    font-size: 14px;  /* Adjust arrow size */
+    color: white;     /* Arrow color */
+}

@@ -1,0 +1,77 @@
+#upper-logo-bar {
+    display: flex;
+    position : relative;
+    justify-content: flex-end; /* Aligns items to the right */
+    align-items: center; /* Vertically centers the items */
+    padding: 10px;
+    background-color: #ae3131; /* Optional styling */
+}
+
+#top-left-button {
+    position: fixed;
+    top: 250px;
+    /* Adjust to position it from the top */
+    right: 25px;
+    /* Change 'left' to 'right' to position it from the right */
+    z-index: 1000;
+    /* Ensures the button stays on top of other elements */
+}
+
+#go-to-login-page-button{
+    margin-left: 10px;
+}
+
+#username-text {
+    font-size: 20px !important; /* Change this to the desired size */
+    font-weight: bold; /* Optional: Make it bold */
+    margin-left: 10px; /* Optional: Add some spacing from the plus button */
+}
+
+
+#plus-button {
+    width: 35px;
+    height: 35px;
+    margin-right : 10px;
+    border-radius: 50%;
+    background-color: #000000;
+    color: white;
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#plus-button:hover {
+    background-color: #0056b3;
+}
+
+#upper-empty-column {
+    width: 100%;
+    /* Full width */
+    height: 50px;
+    /* Height of the empty column (adjust as needed) */
+    background-color: transparent;
+    /* No background color */
+}
+
+.popup {
+    position: absolute;
+    top: 45px; /* Adjust this value to position the popup below the button */
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+#logout-button {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}

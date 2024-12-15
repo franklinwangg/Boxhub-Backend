@@ -1,0 +1,2 @@
+1) create a new supabase database
+2) create a dummy frontend if you need, and test it. maybe just copy over your original frontend lol
