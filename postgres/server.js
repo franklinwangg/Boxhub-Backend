@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const userRoutes = require("./routes/userRoutes");
-const commentRoutes = require("./routes/commentRoutes");
+const userRoutes = require("../api/userRoutes");
+const commentRoutes = require("../api/commentRoutes");
 // const postRoutes = require("./routes/postRoutes");
 const { Client } = require("pg");
 const AWS = require('aws-sdk');

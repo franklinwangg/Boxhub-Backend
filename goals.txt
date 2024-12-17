@@ -1,1 +1,1 @@
-so the comments array is fine
+get shit deployed to vercel in 30-60 mins
